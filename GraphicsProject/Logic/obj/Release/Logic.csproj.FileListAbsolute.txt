@@ -1,0 +1,10 @@
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\Logic\bin\Release\Logic.dll
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\Logic\bin\Release\Logic.pdb
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\Logic\obj\Release\Logic.dll
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\Logic\obj\Release\Logic.pdb
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
+K:\2kurs_Programs\GraphicsProject\Logic\bin\Release\Logic.dll
+K:\2kurs_Programs\GraphicsProject\Logic\bin\Release\Logic.pdb
+K:\2kurs_Programs\GraphicsProject\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
+K:\2kurs_Programs\GraphicsProject\Logic\obj\Release\Logic.dll
+K:\2kurs_Programs\GraphicsProject\Logic\obj\Release\Logic.pdb

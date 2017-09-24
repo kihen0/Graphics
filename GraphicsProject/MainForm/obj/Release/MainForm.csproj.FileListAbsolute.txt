@@ -1,0 +1,22 @@
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Release\MainForm.exe.config
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Release\MainForm.exe
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Release\MainForm.pdb
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Release\Logic.dll
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Release\Logic.pdb
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Release\MainForm.csprojResolveAssemblyReference.cache
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Release\MainForm.Form1.resources
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Release\MainForm.Properties.Resources.resources
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Release\MainForm.csproj.GenerateResource.Cache
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Release\MainForm.exe
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Release\MainForm.pdb
+K:\2kurs_Programs\GraphicsProject\MainForm\bin\Release\MainForm.exe.config
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.exe
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.pdb
+K:\2kurs_Programs\GraphicsProject\MainForm\bin\Release\MainForm.exe
+K:\2kurs_Programs\GraphicsProject\MainForm\bin\Release\MainForm.pdb
+K:\2kurs_Programs\GraphicsProject\MainForm\bin\Release\Logic.dll
+K:\2kurs_Programs\GraphicsProject\MainForm\bin\Release\Logic.pdb
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.csprojResolveAssemblyReference.cache
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.Form1.resources
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.Properties.Resources.resources
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.csproj.GenerateResource.Cache

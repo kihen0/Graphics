@@ -1,0 +1,14 @@
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Debug\MainForm.exe.config
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Debug\MainForm.Form1.resources
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Debug\MainForm.csproj.GenerateResource.Cache
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Debug\MainForm.csprojResolveAssemblyReference.cache
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Debug\MainForm.exe
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Debug\MainForm.pdb
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Debug\Logic.dll
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\bin\Debug\Logic.pdb
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Debug\MainForm.Properties.Resources.resources
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Debug\MainForm.exe
+C:\Users\Kirill\Documents\Visual Studio 2015\Projects\GraphicsProject\MainForm\obj\Debug\MainForm.pdb
+K:\2kurs_Programs\GraphicsProject\MainForm\bin\Debug\MainForm.exe.config
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Debug\MainForm.exe
+K:\2kurs_Programs\GraphicsProject\MainForm\obj\Debug\MainForm.pdb
