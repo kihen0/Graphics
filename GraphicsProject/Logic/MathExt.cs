@@ -10,12 +10,12 @@ namespace Logic
     {
         public class Matrix
         {
-            double[,] data;
+            public double[,] data;
             public Matrix(double[,] inpMatrix)
             {
                 data = inpMatrix;
             }
-            public double[,] Multiply(double[,] matrixB)
+            public Matrix Multiply(double[,] matrixB)
             {
                 if (matrixB.GetLength(0) != this.data.GetLength(1))
                     throw new Exception("!!!");
@@ -32,17 +32,19 @@ namespace Logic
                         result[i,j] = sum;
                     }
                 }
-                return result;
+                return new Matrix(result);
             }
-            public void MultiplyByNumber(double number)
+            public Matrix MultiplyByNumber(double number)
             {
+                var res = new double[data.GetLength(0), data.GetLength(1)];
                 for (int i = 0; i < data.GetLength(0); i++)
                 {
                     for (int j = 0; j < data.GetLength(1); j++)
                     {
-                        data[i, j] *= number;
+                        res[i,j]=data[i, j] * number;
                     }
                 }
+                return new Matrix(res);
             } 
             public static Matrix IdentityMatrix(int size)
             {
