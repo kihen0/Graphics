@@ -27,18 +27,22 @@ namespace MainForm
         {
             if (mode == DrawingMode.clear)
                 return;
-            
-            
-                bm = new Bitmap(pictureBoxMainImage.Width, pictureBoxMainImage.Height - panel1.Size.Height-2);
-                var g = Graphics.FromImage(bm);               
-                if(mode==DrawingMode.draw2D)
-                    model.Draw2D(bm.Width, bm.Height, g,k);
-                if (mode==DrawingMode.draw3D)
-                {
-                    model.Draw3D(bm.Width, bm.Height, g, k,lightFromCameraToolStripMenuItem.Checked);
-                }
-                pictureBoxMainImage.Image = bm;
-            
+
+
+            bm = new Bitmap(pictureBoxMainImage.Width, pictureBoxMainImage.Height - panel1.Size.Height - 2);
+            var g = Graphics.FromImage(bm);
+            if (mode == DrawingMode.draw2D)
+                model.Draw2D(bm.Width, bm.Height, g, k);
+            if (mode == DrawingMode.draw3D)
+            {
+                model.Draw3D(bm.Width, bm.Height, g, k, lightFromCameraToolStripMenuItem.Checked, false);
+            }
+            if (mode == DrawingMode.drawWithBuff)
+            {
+                model.Draw3D(bm.Width, bm.Height, g, k, lightFromCameraToolStripMenuItem.Checked, true);
+            }
+            pictureBoxMainImage.Image = bm;
+
         }
         void Clear()
         {
@@ -235,6 +239,11 @@ namespace MainForm
             ((ToolStripMenuItem)sender).Checked = !b;
             panelZoom.Visible = !b;
             isZoomEnabled = !b;
+        }
+
+        private void drawWithZBufferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeMode(DrawingMode.drawWithBuff);
         }
     }
 }

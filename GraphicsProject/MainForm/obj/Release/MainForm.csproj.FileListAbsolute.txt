@@ -20,3 +20,14 @@ K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.csprojResolveAss
 K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.Form1.resources
 K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.Properties.Resources.resources
 K:\2kurs_Programs\GraphicsProject\MainForm\obj\Release\MainForm.csproj.GenerateResource.Cache
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\bin\Release\MainForm.exe.config
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\obj\Release\MainForm.exe
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\obj\Release\MainForm.pdb
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\bin\Release\MainForm.exe
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\bin\Release\MainForm.pdb
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\bin\Release\Logic.dll
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\bin\Release\Logic.pdb
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\obj\Release\MainForm.csprojResolveAssemblyReference.cache
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\obj\Release\MainForm.Form1.resources
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\obj\Release\MainForm.Properties.Resources.resources
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\MainForm\obj\Release\MainForm.csproj.GenerateResource.Cache

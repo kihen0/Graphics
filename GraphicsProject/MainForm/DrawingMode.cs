@@ -8,6 +8,6 @@ namespace MainForm
 {
     enum DrawingMode
     {
-        clear,draw2D,draw3D
+        clear,draw2D,draw3D,drawWithBuff
     }
 }

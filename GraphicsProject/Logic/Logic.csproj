@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataArrays.cs" />
+    <Compile Include="DataTypes.cs" />
     <Compile Include="DrawingObject.cs" />
     <Compile Include="FileExecutor.cs" />
     <Compile Include="MathExt.cs" />

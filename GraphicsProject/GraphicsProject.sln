@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{242009FD-2211-4DAC-8194-FB77FF1A5E12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTriangleFill", "TestTriangleFill\TestTriangleFill.csproj", "{B64665A9-10F8-4023-A210-86775D5E4F7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{242009FD-2211-4DAC-8194-FB77FF1A5E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{242009FD-2211-4DAC-8194-FB77FF1A5E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{242009FD-2211-4DAC-8194-FB77FF1A5E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64665A9-10F8-4023-A210-86775D5E4F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64665A9-10F8-4023-A210-86775D5E4F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64665A9-10F8-4023-A210-86775D5E4F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64665A9-10F8-4023-A210-86775D5E4F7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

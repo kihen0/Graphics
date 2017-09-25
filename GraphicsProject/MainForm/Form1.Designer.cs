@@ -38,9 +38,12 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centerImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.defaultScaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frontImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lightFromCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.rotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxMainImage = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,9 +53,7 @@
             this.panelRotation = new System.Windows.Forms.Panel();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.lightFromCameraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.frontImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drawWithZBufferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainImage)).BeginInit();
             this.panel1.SuspendLayout();
@@ -94,6 +95,7 @@
             this.runToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.draw2DToolStripMenuItem,
             this.draw3DToolStripMenuItem,
+            this.drawWithZBufferToolStripMenuItem,
             this.clearToolStripMenuItem});
             this.runToolStripMenuItem.Enabled = false;
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
@@ -103,21 +105,21 @@
             // draw2DToolStripMenuItem
             // 
             this.draw2DToolStripMenuItem.Name = "draw2DToolStripMenuItem";
-            this.draw2DToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.draw2DToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.draw2DToolStripMenuItem.Text = "Draw Frame";
             this.draw2DToolStripMenuItem.Click += new System.EventHandler(this.draw2DToolStripMenuItem_Click);
             // 
             // draw3DToolStripMenuItem
             // 
             this.draw3DToolStripMenuItem.Name = "draw3DToolStripMenuItem";
-            this.draw3DToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.draw3DToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.draw3DToolStripMenuItem.Text = "Draw 3D";
             this.draw3DToolStripMenuItem.Click += new System.EventHandler(this.draw3DToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
@@ -151,6 +153,22 @@
             this.defaultScaleToolStripMenuItem.Text = "Default Scale";
             this.defaultScaleToolStripMenuItem.Click += new System.EventHandler(this.defaultScaleToolStripMenuItem_Click);
             // 
+            // frontImageToolStripMenuItem
+            // 
+            this.frontImageToolStripMenuItem.Name = "frontImageToolStripMenuItem";
+            this.frontImageToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.frontImageToolStripMenuItem.Text = "Front Image";
+            this.frontImageToolStripMenuItem.Click += new System.EventHandler(this.frontImageToolStripMenuItem_Click);
+            // 
+            // lightFromCameraToolStripMenuItem
+            // 
+            this.lightFromCameraToolStripMenuItem.Checked = true;
+            this.lightFromCameraToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.lightFromCameraToolStripMenuItem.Name = "lightFromCameraToolStripMenuItem";
+            this.lightFromCameraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.lightFromCameraToolStripMenuItem.Text = "Light From Camera";
+            this.lightFromCameraToolStripMenuItem.Click += new System.EventHandler(this.lightFromCameraToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -173,6 +191,15 @@
             this.movingToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.movingToolStripMenuItem.Text = "Moving";
             this.movingToolStripMenuItem.Click += new System.EventHandler(this.movingToolStripMenuItem_Click);
+            // 
+            // zoomToolStripMenuItem
+            // 
+            this.zoomToolStripMenuItem.Checked = true;
+            this.zoomToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.zoomToolStripMenuItem.Text = "Zoom";
+            this.zoomToolStripMenuItem.Click += new System.EventHandler(this.zoomToolStripMenuItem_Click);
             // 
             // pictureBoxMainImage
             // 
@@ -279,30 +306,12 @@
             this.trackBar2.TickFrequency = 15;
             this.trackBar2.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // lightFromCameraToolStripMenuItem
+            // drawWithZBufferToolStripMenuItem
             // 
-            this.lightFromCameraToolStripMenuItem.Checked = true;
-            this.lightFromCameraToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.lightFromCameraToolStripMenuItem.Name = "lightFromCameraToolStripMenuItem";
-            this.lightFromCameraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.lightFromCameraToolStripMenuItem.Text = "Light From Camera";
-            this.lightFromCameraToolStripMenuItem.Click += new System.EventHandler(this.lightFromCameraToolStripMenuItem_Click);
-            // 
-            // frontImageToolStripMenuItem
-            // 
-            this.frontImageToolStripMenuItem.Name = "frontImageToolStripMenuItem";
-            this.frontImageToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.frontImageToolStripMenuItem.Text = "Front Image";
-            this.frontImageToolStripMenuItem.Click += new System.EventHandler(this.frontImageToolStripMenuItem_Click);
-            // 
-            // zoomToolStripMenuItem
-            // 
-            this.zoomToolStripMenuItem.Checked = true;
-            this.zoomToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.zoomToolStripMenuItem.Text = "Zoom";
-            this.zoomToolStripMenuItem.Click += new System.EventHandler(this.zoomToolStripMenuItem_Click);
+            this.drawWithZBufferToolStripMenuItem.Name = "drawWithZBufferToolStripMenuItem";
+            this.drawWithZBufferToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.drawWithZBufferToolStripMenuItem.Text = "Draw with Z-Buffer";
+            this.drawWithZBufferToolStripMenuItem.Click += new System.EventHandler(this.drawWithZBufferToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -357,6 +366,7 @@
         private System.Windows.Forms.ToolStripMenuItem lightFromCameraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem frontImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem drawWithZBufferToolStripMenuItem;
     }
 }
 
