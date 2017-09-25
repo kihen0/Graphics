@@ -15,7 +15,7 @@ namespace Logic
             {
                 data = inpMatrix;
             }
-            public Matrix Multiply(double[,] matrixB)
+            public Matrix MultiplyRight(double[,] matrixB)
             {
                 if (matrixB.GetLength(0) != this.data.GetLength(1))
                     throw new Exception("!!!");
@@ -30,6 +30,25 @@ namespace Logic
                             sum += data[i, k] * matrixB[k, j];
                         }
                         result[i,j] = sum;
+                    }
+                }
+                return new Matrix(result);
+            }
+            public Matrix MultiplyLeft(double[,] matrixB)
+            {
+                if (data.GetLength(0) != matrixB.GetLength(1))
+                    throw new Exception("!!!");
+                double[,] result = new double[matrixB.GetLength(0), data.GetLength(1)];
+                for (int i = 0; i < matrixB.GetLength(0); i++)
+                {
+                    for (int j = 0; j < data.GetLength(1); j++)
+                    {
+                        double sum = 0;
+                        for (int k = 0; k < matrixB.GetLength(1); k++)
+                        {
+                            sum += matrixB[i, k] * data[k, j];
+                        }
+                        result[i, j] = sum;
                     }
                 }
                 return new Matrix(result);

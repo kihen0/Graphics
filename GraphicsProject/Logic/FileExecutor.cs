@@ -63,7 +63,7 @@ namespace Logic
                                 {
                                     var elems = sa[i].Split('/');
                                     v = int.Parse(elems[0]);
-                                    if (elems.Length >1)                                    
+                                    if (elems.Length >1&&elems[1]!="")                                    
                                         vt = int.Parse(elems[1]);
                                     
                                     if (elems.Length==3)                                    

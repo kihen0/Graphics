@@ -69,7 +69,7 @@ namespace Logic
                     vecs[1, 0] * vecs[0, 2] - vecs[0,0 ] * vecs[1, 2],
                     vecs[0, 0] * vecs[1, 1] - vecs[1, 0] * vecs[0, 1] };
 
-                double VecMultiplyBackFaceCulling = NVect[0] * sin*vCos - NVect[1] * vSin + NVect[2] * cos*vCos;                
+                double VecMultiplyBackFaceCulling = -NVect[0] * sin*vCos + NVect[1] * vSin + NVect[2] * cos*vCos;                
                 double CosAlphaBFC = VecMultiplyBackFaceCulling / Math.Sqrt(NVect[0] * NVect[0] + NVect[1] * NVect[1] + NVect[2] * NVect[2]);
                 double VecMultiplyLight, CosAlphaLight;
                 if (isLightFromCamera)
@@ -81,22 +81,24 @@ namespace Logic
                     VecMultiplyLight = NVect[2];
                     CosAlphaLight = VecMultiplyLight / Math.Sqrt(NVect[0] * NVect[0] + NVect[1] * NVect[1] + NVect[2] * NVect[2]);
                 }
-                //if (CosAlphaBFC >= 0)
+                if (CosAlphaBFC >= 0)
                 {
+
                     CosAlphaLight = -Math.Abs(Math.Acos(CosAlphaLight))/Math.PI+1;//optional
 
                     var PointsMatrix =new  MathExt.Matrix( ArrayConcat(P));
                     PointsMatrix=PointsMatrix.MultiplyByNumber(k);
-                    PointsMatrix=PointsMatrix.Multiply(new double[,] { { cos, 0, sin }, { 0, 1, 0 }, { -sin, 0, cos } });
+                    PointsMatrix=PointsMatrix.MultiplyLeft(new double[,] { { cos, 0, sin }, { 0, 1, 0 }, { -sin, 0, cos } });
+                    PointsMatrix = PointsMatrix.MultiplyLeft(new double[,] { { 1, 0, 0 }, { 0, vCos, -vSin }, { 0, vSin, vCos } });
                     /*var ps = P.Select(t => new PointF(
                       (float)(t.Item1 * cos - t.Item3 * sin) * k+x*koef +  width * 0.5f,
                        (float)((-t.Item2*vCos-( t.Item3 * cos + t.Item1 * sin)*vSin)* k+y*koef+ height * 0.5f))).ToArray();*/
                     var ps = PolygonFromMatrix(PointsMatrix.data).Select(p => new PointF(p.X + x * koef + width * 0.5f, -p.Y + y * koef + height * 0.5f)).ToArray();                        
                     var colorRGB = Convert.ToInt32(150 * CosAlphaBFC*CosAlphaBFC)+40;                   
                     var color = Color.FromArgb(Convert.ToInt32(204 * CosAlphaLight), Convert.ToInt32(184 * CosAlphaLight), Convert.ToInt32(132 * CosAlphaLight));
-                    //g.FillPolygon(new SolidBrush(color), ps);
+                    g.FillPolygon(new SolidBrush(color), ps);
                     polygonArr[i] = new KeyValuePair<PointF[], Color>(ps, color);
-                    g.DrawPolygon(Pens.Black, ps);
+                    //g.DrawPolygon(Pens.Black, ps);
                 }               
             }
         }              
