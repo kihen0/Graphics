@@ -7,3 +7,4 @@ C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Logic\bin\Debug\Logic.
 C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Logic\bin\Debug\Logic.pdb
 C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Logic\obj\Debug\Logic.dll
 C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Logic\obj\Debug\Logic.pdb
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache

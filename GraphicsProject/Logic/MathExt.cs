@@ -75,6 +75,26 @@ namespace Logic
 
                 return new Matrix( result);                                      
             }
+            public Matrix Resize(int dSize)
+            {
+                int size=data.GetLength(0)+dSize;
+                double[,] result = new double[size,size];
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size; j++)
+                    {
+                        if (data.GetLength(0) > i && data.GetLength(1) > j)
+                        {
+                            result[i, j] = data[i, j];
+                        }
+                        else
+                        {
+                            result[i, j] = 1;
+                        }
+                    }
+                }
+                return new Matrix(result);
+            }
         }
     }
 }

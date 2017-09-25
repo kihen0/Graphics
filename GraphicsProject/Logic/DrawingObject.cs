@@ -22,10 +22,10 @@ namespace Logic
         }       
         public void Draw2D(int width, int height, Graphics g, float koef)
         {
-            double vCos= (float)Math.Cos(Math.PI * beta / 180),
-                vSin= (float)Math.Sin(Math.PI * beta / 180);
-            float cos = (float)Math.Cos(Math.PI * alpha / 180),
-                sin = (float)Math.Sin(Math.PI * alpha / 180);
+            double vCos= (float)Math.Cos(-Math.PI * beta / 180),
+                vSin= (float)Math.Sin(-Math.PI * beta / 180);
+            float cos = (float)Math.Cos(-Math.PI * alpha / 180),
+                sin = (float)Math.Sin(-Math.PI * alpha / 180);
             float maxR = (float)data.Vertices.Select(tup =>
                 Math.Sqrt(tup.Item1 * tup.Item1 + tup.Item2 * tup.Item2)).Max();
             int min = (width > height) ? height : width;
@@ -88,12 +88,16 @@ namespace Logic
                 if (CosAlphaBFC >= 0)
                 {
                     CosAlphaLight = -Math.Abs(Math.Acos(CosAlphaLight))/Math.PI+1;//optional
-
+                    float dx = x * koef + width * 0.5f,
+                        dy = y * koef + height * 0.5f;
                     var PointsMatrix =new  MathExt.Matrix( ArrayConcat(P));
-                    PointsMatrix=PointsMatrix.MultiplyByNumber(k);
-                    PointsMatrix=PointsMatrix.MultiplyLeft(new double[,] { { cos, 0, sin }, { 0, 1, 0 }, { -sin, 0, cos } });
-                    PointsMatrix = PointsMatrix.MultiplyLeft(new double[,] { { 1, 0, 0 }, { 0, vCos, -vSin }, { 0, vSin, vCos } });                   
-                    var ps = PolygonFromMatrix(PointsMatrix.data).Select(p => new PointF(p.X + x * koef + width * 0.5f, -p.Y + y * koef + height * 0.5f)).ToArray();                                            
+                    PointsMatrix = PointsMatrix.MultiplyByNumber(k);
+                    PointsMatrix = PointsMatrix.MultiplyLeft(new double[,] { { cos, 0, sin }, { 0, 1, 0 }, { -sin, 0, cos } });
+                    PointsMatrix = PointsMatrix.MultiplyLeft(new double[,] { { 1, 0, 0 }, { 0, vCos, -vSin }, { 0, vSin, vCos } });
+                    PointsMatrix = PointsMatrix.MultiplyLeft(new double[,] { { 1, 0, 0 }, { 0, -1, 0 }, { 0, 0, 1 } });
+                    PointsMatrix = PointsMatrix.Resize(1).MultiplyLeft(new double[,]
+                    { { 1, 0, 0, dx }, { 0, 1, 0, dy }, {0,0,1,0 }, {0,0,0,1 }}).Resize(-1);
+                    var ps = PolygonFromMatrix(PointsMatrix.data).Select(p => new PointF(p.X , p.Y )).ToArray();                                            
                     var color = Color.FromArgb(Convert.ToInt32(204 * CosAlphaLight), Convert.ToInt32(184 * CosAlphaLight), Convert.ToInt32(132 * CosAlphaLight));
                     if (buffer)
                     {
@@ -106,10 +110,9 @@ namespace Logic
                             var minY = (int)ps.Min(p => p.Y);                            
                             var matrix = PointsMatrix.data;
                             Vector3D[] a = new Vector3D[3];
-                            for (int m = 0; m < 3; m++)
-                            {
+                            for (int m = 0; m < 3; m++)                            
                                 a[m] = new Vector3D(matrix[0, m], matrix[1, m], matrix[2, m]);
-                            }
+                            
                             var v1 = a[1] - a[0];
                             var v2 = a[2] - a[0];
                             var ABC = new float[3];
@@ -124,7 +127,7 @@ namespace Logic
                                     if (!(i < 0 || j < 0 || i >= width || j >= height))
                                     {
                                         var p = new PointF(i, j);
-                                        if (PointInTriangle(new PointF(i, j), ps[0], ps[1], ps[2]))
+                                        if (PointInTriangle(p, ps[0], ps[1], ps[2]))
                                         {
                                             float z = getZ(i, j);
                                             if (z >= ZBuffer[j, i])
@@ -143,11 +146,7 @@ namespace Logic
                         g.FillPolygon(new SolidBrush(color), ps);                                       
                 }               
             }
-        }          
-        float TriangleSquare(PointF[] ar)
-        {
-            return Math.Abs((ar[0].X - ar[2].X) * (ar[1].Y - ar[2].Y) - (ar[1].X - ar[2].X) * (ar[0].Y - ar[2].Y)) / 2;
-        }
+        }                  
 
         float sign(PointF p1, PointF p2, PointF p3)
         {
