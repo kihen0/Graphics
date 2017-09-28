@@ -41,9 +41,8 @@ namespace Logic
                 polygonArr[i++] = new KeyValuePair<PointF[], Color>(ps, Color.FromArgb(0,0,0));
                 g.DrawPolygon(Pens.Black, ps);
             }
-        }
-        delegate float PlaneFunction(float x, float z);
-        public void Draw3D(int width, int height, Graphics g, float koef,bool isLightFromCamera,bool buffer)
+        }        
+        public void Draw3D(int width, int height, Graphics g, Bitmap bm, float koef,bool isLightFromCamera,bool buffer)
         {                      
             double vCos= (float)Math.Cos(Math.PI * beta / 180),
                 vSin= (float)Math.Sin(Math.PI * beta / 180);
@@ -96,7 +95,7 @@ namespace Logic
                     PointsMatrix = PointsMatrix.MultiplyLeft(new double[,] { { 1, 0, 0 }, { 0, vCos, -vSin }, { 0, vSin, vCos } });
                     PointsMatrix = PointsMatrix.MultiplyLeft(new double[,] { { 1, 0, 0 }, { 0, -1, 0 }, { 0, 0, 1 } });
                     PointsMatrix = PointsMatrix.Resize(1).MultiplyLeft(new double[,]
-                    { { 1, 0, 0, dx }, { 0, 1, 0, dy }, {0,0,1,0 }, {0,0,0,1 }}).Resize(-1);
+                    { { 1, 0, 0, dx }, { 0, 1, 0, dy }, {0,0,1,0 }, {0,0,0,1 }}).Resize(-1);                    
                     var ps = PolygonFromMatrix(PointsMatrix.data).Select(p => new PointF(p.X , p.Y )).ToArray();                                            
                     var color = Color.FromArgb(Convert.ToInt32(204 * CosAlphaLight), Convert.ToInt32(184 * CosAlphaLight), Convert.ToInt32(132 * CosAlphaLight));
                     if (buffer)
@@ -119,7 +118,7 @@ namespace Logic
                             ABC[0] = v1.y * v2.z - v1.z * v2.y;
                             ABC[1] = v2.x * v1.z - v1.x * v2.z;
                             ABC[2] = v1.x * v2.y - v1.y * v2.x;
-                            PlaneFunction getZ = new PlaneFunction((x, y) => (ABC[0] * a[2].x + ABC[1] * a[2].y + ABC[2] * a[2].z - ABC[0] * x - ABC[1] * y) / ABC[2]);
+                            var zKoef = (ABC[0] * a[2].x + ABC[1] * a[2].y + ABC[2] * a[2].z) / ABC[2];                           
                             for (int i = minX; i <= maxX; i++)
                             {
                                 for (int j = minY; j <= maxY; j++)
@@ -129,11 +128,12 @@ namespace Logic
                                         var p = new PointF(i, j);
                                         if (PointInTriangle(p, ps[0], ps[1], ps[2]))
                                         {
-                                            float z = getZ(i, j);
+                                            float z = zKoef - (ABC[0] * i + ABC[1] * j) / ABC[2];                                                
                                             if (z >= ZBuffer[j, i])
                                             {
                                                 ZBuffer[j, i] = z;
-                                                g.FillRectangle(new SolidBrush(color), i, j, 1, 1);
+                                                bm.SetPixel(i, j, color);
+                                                //g.FillRectangle(new SolidBrush(color), i, j, 1, 1);
                                             }
                                         }
                                     }

@@ -25,7 +25,7 @@ namespace MainForm
         DrawingObject model;
         void Drawing()
         {
-            if (mode == DrawingMode.clear)
+            if (mode == DrawingMode.clear||pictureBoxMainImage.Width==0||pictureBoxMainImage.Height==0)
                 return;
 
 
@@ -35,11 +35,11 @@ namespace MainForm
                 model.Draw2D(bm.Width, bm.Height, g, k);
             if (mode == DrawingMode.draw3D)
             {
-                model.Draw3D(bm.Width, bm.Height, g, k, lightFromCameraToolStripMenuItem.Checked, false);
+                model.Draw3D(bm.Width, bm.Height, g,bm, k, lightFromCameraToolStripMenuItem.Checked, false);
             }
             if (mode == DrawingMode.drawWithBuff)
             {
-                model.Draw3D(bm.Width, bm.Height, g, k, lightFromCameraToolStripMenuItem.Checked, true);
+                model.Draw3D(bm.Width, bm.Height, g,bm, k, lightFromCameraToolStripMenuItem.Checked, true);
             }
             pictureBoxMainImage.Image = bm;
 
