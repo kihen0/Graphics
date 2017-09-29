@@ -127,7 +127,7 @@ namespace Logic
                     if (buffer)
                     {
                         #region Z-Buffer
-                        if (ps.Length == 3)
+                       // if (ps.Length == 3)
                         {
                             var maxX = (int)ps.Max(p => p.X);
                             var maxY = (int)ps.Max(p => p.Y);
@@ -244,7 +244,7 @@ namespace Logic
                     { { 1, 0, 0, dx }, { 0, 1, 0, dy }, {0,0,1,0 }, {0,0,0,1 }}).Resize(-1);
                     var ps = PolygonFromMatrix(pointsMatrix.data).Select(p => new PointF(p.X, p.Y)).ToArray();
                     var color = Color.FromArgb(Convert.ToInt32(204 * CosAlphaLight), Convert.ToInt32(184 * CosAlphaLight), Convert.ToInt32(132 * CosAlphaLight));
-                    if (ps.Length == 3)
+                    //if (ps.Length == 3)
                     {
                         Vector3D lightVector;
                         if (isLightFromCamera)
