@@ -1,0 +1,8 @@
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\bin\Debug\Test.exe.config
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\bin\Debug\Test.exe
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\bin\Debug\Test.pdb
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\bin\Debug\Logic.dll
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\bin\Debug\Logic.pdb
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\obj\Debug\Test.exe
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject\Test\obj\Debug\Test.pdb
