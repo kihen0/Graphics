@@ -112,7 +112,7 @@ namespace MainForm
                     gouraudShadingToolStripMenuItem.Enabled = true;
 
                 label1.Text = "file loaded, " + data.Vertices.Length + " V,    "+ data.VT.Length 
-                    + " VT,    " + data.VN.Length + " VN,    " + data.Faces.Length + " Faces";
+                    + " VT,    " + data.VN.Length + " VN,    " + data.Groups.Length + " Faces";
                 runToolStripMenuItem.Enabled = settingsToolStripMenuItem.Enabled = true;              
             }
             Clear();

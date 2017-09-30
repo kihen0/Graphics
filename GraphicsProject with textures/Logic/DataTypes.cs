@@ -14,14 +14,14 @@ namespace Logic
         public Tuple<double, double, double>[] Vertices;
         public PointF[] VT;
         public Tuple<double, double, double>[] VN;
-        public Tuple<int, int, int>[][] Faces;
+        public Tuple<int, int, int>[][][] Groups;
         public DataArrays(Tuple<double, double, double>[] vertices, PointF[] vt,
-            Tuple<double, double, double>[]vn, Tuple<int, int, int>[][] faces)
+            Tuple<double, double, double>[]vn, Tuple<int, int, int>[][][] groups)
         {
             Vertices = vertices;
             VT = vt;
             VN = vn;
-            Faces = faces;             
+            Groups = groups;             
         }
     }
     struct Vector3D

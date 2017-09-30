@@ -44,7 +44,7 @@ namespace Logic
                 Math.Sqrt(tup.Item1 * tup.Item1 + tup.Item2 * tup.Item2)).Max();
             int min = (width > height) ? height : width;
             float k = min * 0.5f / maxR * 0.9f * koef;            
-            foreach (var polygon in data.Faces)
+            foreach (var polygon in data.Groups)
             {
                 var P = polygon.Select(t =>
                     new Tuple<double, double, double>(data.Vertices[t.Item1 - 1].Item1, data.Vertices[t.Item1 - 1].Item2, data.Vertices[t.Item1 - 1].Item3)).ToArray();
@@ -75,7 +75,7 @@ namespace Logic
                 }
             }
             
-            foreach (var polygon in data.Faces)
+            foreach (var polygon in data.Groups.a)
             {
                 var P = polygon.Select(t =>
                     new Tuple<double, double, double>(data.Vertices[t.Item1 - 1].Item1, data.Vertices[t.Item1 - 1].Item2, data.Vertices[t.Item1 - 1].Item3)).ToArray();
@@ -194,7 +194,7 @@ namespace Logic
                 }
             }
             
-            foreach (var polygon in data.Faces)
+            foreach (var polygon in data.Groups)
             {
                 var P = polygon.Select(t =>
                     new Tuple<double, double, double>(data.Vertices[t.Item1 - 1].Item1, data.Vertices[t.Item1 - 1].Item2, data.Vertices[t.Item1 - 1].Item3)).ToArray();
