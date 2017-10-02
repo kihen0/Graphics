@@ -83,7 +83,7 @@ namespace Logic
                                 }
                                 finally
                                 {
-                                    linksList.Add(new Tuple<int, int, int>(v, vt, vn));
+                                    linksList.Add(new Tuple<int, int, int>(Math.Abs(v), Math.Abs(vt), Math.Abs(vn)));
                                 }
                             }
                             faces.Add(linksList.ToArray());
