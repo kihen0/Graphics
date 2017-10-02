@@ -45,16 +45,16 @@ namespace MainForm
                 case DrawingMode.clear:
                     break;
                 case DrawingMode.draw2D:
-                    model.Draw2D(bm.Width, bm.Height, g, k);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, false, false, true, gouraudShadingToolStripMenuItem.Checked, textureName);
                     break;
                 case DrawingMode.draw3D:
-                    model.Draw3D(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, false);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, false,false,false, gouraudShadingToolStripMenuItem.Checked,textureName);
                     break;
                 case DrawingMode.drawWithBuff:
-                    model.Draw3D(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, true);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, true,false,false, gouraudShadingToolStripMenuItem.Checked,textureName);
                     break;
                 case DrawingMode.drawWithTextures:
-                    model.DrawWithTextures(bm.Width, bm.Height, bm, k,textureName,gouraudShadingToolStripMenuItem.Checked,lightFromCameraToolStripMenuItem.Checked);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, true, true, false, gouraudShadingToolStripMenuItem.Checked, textureName);
                     break;
             }
             pictureBoxMainImage.Image = bm;
@@ -112,7 +112,7 @@ namespace MainForm
                     gouraudShadingToolStripMenuItem.Enabled = true;
 
                 label1.Text = "file loaded, " + data.Vertices.Length + " V,    "+ data.VT.Length 
-                    + " VT,    " + data.VN.Length + " VN,    " + data.Groups.Length + " Faces";
+                    + " VT,    " + data.VN.Length + " VN,    " + data.Faces.Length + " Faces";
                 runToolStripMenuItem.Enabled = settingsToolStripMenuItem.Enabled = true;              
             }
             Clear();

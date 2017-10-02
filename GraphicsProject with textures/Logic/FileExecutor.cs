@@ -41,9 +41,8 @@ namespace Logic
             DataArrays data;
             var vertices = new List<Tuple<double, double, double>>();
             var vtList = new List<Tuple<double, double,double>>();
-            var vnList = new List<Tuple<double, double, double>>();
-            var faceList = new List<Tuple<int, int, int>[]>();
-            var groups=new List<List<Tuple<int, int, int>[]>>();
+            var vnList = new List<Tuple<double, double, double>>();            
+            var faces=new List<Tuple<int, int, int>[]>();
             using (StreamReader reader =new StreamReader(fileName))
             {                
                 string s;
@@ -87,19 +86,14 @@ namespace Logic
                                     linksList.Add(new Tuple<int, int, int>(v, vt, vn));
                                 }
                             }
-                            faceList.Add(linksList.ToArray());
-                        }
-                        else if (s.Contains("usemtl")||s[0]=='o'||s[0]=='g')
-                        {
-                            groups.Add(faceList);
-                            faceList = new List<Tuple<int, int, int>[]>();
-                        }
+                            faces.Add(linksList.ToArray());
+                        }                        
                     }
                 }
             }
             data = new DataArrays(vertices.ToArray(),vtList.Min(x=>x.Item2)>=0? vtList.Select(x => new PointF(Math.Abs((float)x.Item1), (float)x.Item2)).ToArray()
                 : vtList.Select(x=>new PointF(Math.Abs((float)x.Item1),((float)x.Item2)-1)).ToArray()
-                ,vnList.ToArray(),groups.Select(x=>x.ToArray()).ToArray());                
+                ,vnList.ToArray(),faces.ToArray());                
             return data;
         }
         public static Bitmap TextureOpen(string pathPlusName)
