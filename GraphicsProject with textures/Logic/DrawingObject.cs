@@ -40,9 +40,7 @@ namespace Logic
         }       
         public void DrawNew(int width, int height, Graphics g, Bitmap bm, float koef, bool isLightFromCamera, bool buffer, bool isNeedTexture, bool isFrame, bool isGourand, string textureName)
         {
-            var matrixArr = SelectFromDataAndRotate();
-            /*if (IsWithPerspective)
-                matrixArr = Perspectie(matrixArr);*/
+            var matrixArr = SelectFromDataAndRotate();           
             var ps = Projection(matrixArr = Move(matrixArr, width, height, koef,IsWithPerspective));
             var vecs = NormaleVector(matrixArr);
             InitializeZBuffer(width, height);
@@ -65,7 +63,7 @@ namespace Logic
                     textureCoord = data.Faces[i].Select(x => (data.VT[x.Item2 - 1])).ToArray();
                 if (isGourand)
                     nVectors = data.Faces[i].Select(x => (data.VN[x.Item3 - 1])).Select(x => new Vector3D(x.Item1, x.Item2, x.Item3)).ToArray();
-                float cosA = CosAngle(vecs[i], lightVector = new Vector3D(0, 0, -1));
+                float cosA = CosAngle(vecs[i], lightVector = new Vector3D(0, 0,-1));
                 if (cosA >= 0)
                 {
                     PointF ab, ac, tAB, tAC;
@@ -84,10 +82,10 @@ namespace Logic
                         }
                     }
                     var trig = VcosVsinCosSin();
-                    if (!isLightFromCamera && IsNeedShadows)
+                    if (!isLightFromCamera)
                     {
-                        cosA = CosAngle(vecs[i], lightVector = new Vector3D(-trig[3] * trig[0],- trig[1], -trig[2] * trig[0]));
-                    }
+                        cosA = CosAngle(vecs[i], lightVector = new Vector3D(-trig[3] * trig[0], -trig[1], -trig[2] * trig[0]));                        
+                    }                    
                     cosA = (float)(-Math.Abs(Math.Acos(cosA)) / Math.PI + 1) * 0.7f + 0.3f;
                     Color color;
                     if (IsNeedShadows)
