@@ -86,14 +86,14 @@ namespace Logic
                     var trig = VcosVsinCosSin();
                     if (!isLightFromCamera && IsNeedShadows)
                     {
-                        cosA = CosAngle(vecs[i], lightVector = new Vector3D(-trig[3] * trig[0], trig[1], -trig[2] * trig[0]));
+                        cosA = CosAngle(vecs[i], lightVector = new Vector3D(-trig[3] * trig[0],- trig[1], -trig[2] * trig[0]));
                     }
                     cosA = (float)(-Math.Abs(Math.Acos(cosA)) / Math.PI + 1) * 0.7f + 0.3f;
                     Color color;
-                    if (!IsNeedShadows)
-                        color = RandomColor(new int[] { 204, 184, 132 });
-                    else
+                    if (IsNeedShadows)
                         color = Color.FromArgb(Convert.ToInt32(204 * cosA), Convert.ToInt32(184 * cosA), Convert.ToInt32(132 * cosA));
+                    else
+                        color = RandomColor(new int[] { 204, 184, 132 });
                     ForZBuffering drawingDelegate = new ForZBuffering((x, y) =>
                       {
                           if (isNeedTexture || isGourand)
@@ -113,6 +113,7 @@ namespace Logic
                               {
                                   if (isGourand)
                                   {
+                                      //-NVect[0] * sin*vCos + NVect[1] * vSin + NVect[2] * cos*vCos
                                       lightVector = isLightFromCamera ? new Vector3D(-trig[3] * trig[0], trig[1], trig[2] * trig[0]) : new Vector3D(0, 0, 1);
                                       var normVec = (nVectors[0] * (1 - u - v) + nVectors[1] * u + nVectors[2] * v);
                                       cosA = (normVec * lightVector) / (normVec.Abs() * lightVector.Abs());
