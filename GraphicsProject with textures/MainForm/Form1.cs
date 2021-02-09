@@ -45,16 +45,16 @@ namespace MainForm
                 case DrawingMode.clear:
                     break;
                 case DrawingMode.draw2D:
-                    model.Draw2D(bm.Width, bm.Height, g, k);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, false, false, true, gouraudShadingToolStripMenuItem.Checked, textureName);
                     break;
                 case DrawingMode.draw3D:
-                    model.Draw3D(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, false);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, false,false,false, gouraudShadingToolStripMenuItem.Checked,textureName);
                     break;
                 case DrawingMode.drawWithBuff:
-                    model.Draw3D(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, true);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, true,false,false, gouraudShadingToolStripMenuItem.Checked,textureName);
                     break;
                 case DrawingMode.drawWithTextures:
-                    model.DrawWithTextures(bm.Width, bm.Height, bm, k,textureName,gouraudShadingToolStripMenuItem.Checked,lightFromCameraToolStripMenuItem.Checked);
+                    model.DrawNew(bm.Width, bm.Height, g, bm, k, lightFromCameraToolStripMenuItem.Checked, true, true, false, gouraudShadingToolStripMenuItem.Checked, textureName);
                     break;
             }
             pictureBoxMainImage.Image = bm;
@@ -145,37 +145,43 @@ namespace MainForm
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            model.beta = trackBar2.Value;
-            model.alpha = trackBar1.Value;
-            Drawing();
-            
+            if (mode != DrawingMode.clear)
+            {
+                model.beta = trackBar2.Value;
+                model.alpha = trackBar1.Value;
+                Drawing();
+            }
         }
 
         private void Form1_mouseMove(object sender, MouseEventArgs e)
         {
             Text = e.X + " " + e.Y;
-            if (isSpiningEnabled&&spining&&(prev.X-e.X>6||prev.Y-e.Y>6||e.X-prev.X>6||e.Y-prev.Y>6))
+            if (mode != DrawingMode.clear)
             {
-                var dx = e.X - prev.X;
-                var dy = e.Y - prev.Y;
-                if (trackBar1.Value > trackBar1.Minimum - dx && trackBar1.Value + dx < trackBar1.Maximum)
-                    trackBar1.Value += e.X - prev.X;
-                else
-                    if (dx > 0)
-                        trackBar1.Value += trackBar1.Minimum*2 + dx;
-                else
-                    trackBar1.Value += trackBar1.Maximum*2 + dx;
-                if(trackBar2.Value > trackBar2.Minimum-dy && trackBar2.Value+dy < trackBar2.Maximum)
-                trackBar2.Value += e.Y - prev.Y;
-                trackBar1_Scroll(2, null);
-                prev = e.Location;
-            }
-            if (moving&&isMovingEnabled)
-            {                
-                model.Move((e.X - prev.X)/k, (e.Y - prev.Y)/k);
-                prev = e.Location;
-                Drawing();
-               
+                if (isSpiningEnabled && spining && (prev.X - e.X > 6 || prev.Y - e.Y > 6 || e.X - prev.X > 6 || e.Y - prev.Y > 6))
+                {
+                    var dx = e.X - prev.X;
+                    var dy = e.Y - prev.Y;
+                    if (trackBar1.Value > trackBar1.Minimum - dx && trackBar1.Value + dx < trackBar1.Maximum)
+                        trackBar1.Value += e.X - prev.X;
+                    else
+                        if (dx > 0)
+                        trackBar1.Value += trackBar1.Minimum * 2 + dx;
+                    else
+                        trackBar1.Value += trackBar1.Maximum * 2 + dx;
+                    if (trackBar2.Value > trackBar2.Minimum - dy && trackBar2.Value + dy < trackBar2.Maximum)
+                        trackBar2.Value += e.Y - prev.Y;
+                    trackBar1_Scroll(2, null);
+                    prev = e.Location;
+                }
+                if (moving && isMovingEnabled)
+                {
+
+                    model.Move((e.X - prev.X) / k, (e.Y - prev.Y) / k);
+                    prev = e.Location;
+                    Drawing();
+
+                }
             }
         }
 

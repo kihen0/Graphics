@@ -41,8 +41,8 @@ namespace Logic
             DataArrays data;
             var vertices = new List<Tuple<double, double, double>>();
             var vtList = new List<Tuple<double, double,double>>();
-            var vnList = new List<Tuple<double, double, double>>();
-            var faceList = new List<Tuple<int, int, int>[]>();
+            var vnList = new List<Tuple<double, double, double>>();            
+            var faces=new List<Tuple<int, int, int>[]>();
             using (StreamReader reader =new StreamReader(fileName))
             {                
                 string s;
@@ -50,23 +50,23 @@ namespace Logic
                 {                   
                     if (s.ToLower().Length!=0)
                     {
-                        if(s[0]=='v')
-                        {                            
-                            if (s[1]=='t')
+                        if (s[0] == 'v')
+                        {
+                            if (s[1] == 't')
                             {
                                 ListPush(s, vtList);
                             }
-                            else if (s[1]=='n')
+                            else if (s[1] == 'n')
                             {
                                 ListPush(s, vnList);
                             }
-                            else if(s[1]==' ')                            
-                                ListPush(s, vertices);                            
+                            else if (s[1] == ' ')
+                                ListPush(s, vertices);
                         }
-                        else if(s[0]=='f')
-                        {                            
-                            var linksList = new List<Tuple<int, int, int>>();           
-                            var sa = s.Split(new char[] { ' ' },StringSplitOptions.RemoveEmptyEntries);
+                        else if (s[0] == 'f')
+                        {
+                            var linksList = new List<Tuple<int, int, int>>();
+                            var sa = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                             for (int i = 1; i < sa.Length; i++)
                             {
                                 int v = -1, vt = -1, vn = -1;
@@ -74,26 +74,26 @@ namespace Logic
                                 {
                                     var elems = sa[i].Split('/');
                                     v = int.Parse(elems[0]);
-                                    if (elems.Length >1&&elems[1]!="")                                    
+                                    if (elems.Length > 1 && elems[1] != "")
                                         vt = int.Parse(elems[1]);
-                                    
-                                    if (elems.Length==3)                                    
-                                        vn= int.Parse(elems[2]);
-                                                                        
-                                }                               
+
+                                    if (elems.Length == 3)
+                                        vn = int.Parse(elems[2]);
+
+                                }
                                 finally
                                 {
-                                    linksList.Add(new Tuple<int, int, int>(v, vt, vn));
-                                } 
+                                    linksList.Add(new Tuple<int, int, int>(Math.Abs(v), Math.Abs(vt), Math.Abs(vn)));
+                                }
                             }
-                            faceList.Add(linksList.ToArray());
-                        }
+                            faces.Add(linksList.ToArray());
+                        }                        
                     }
                 }
             }
             data = new DataArrays(vertices.ToArray(),vtList.Min(x=>x.Item2)>=0? vtList.Select(x => new PointF(Math.Abs((float)x.Item1), (float)x.Item2)).ToArray()
                 : vtList.Select(x=>new PointF(Math.Abs((float)x.Item1),((float)x.Item2)-1)).ToArray()
-                ,vnList.ToArray(),faceList.ToArray());                
+                ,vnList.ToArray(),faces.ToArray());                
             return data;
         }
         public static Bitmap TextureOpen(string pathPlusName)

@@ -1,0 +1,9 @@
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\bin\Release\TestTriangleFill.exe.config
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\bin\Release\TestTriangleFill.exe
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\bin\Release\TestTriangleFill.pdb
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\obj\Release\TestTriangleFill.csprojResolveAssemblyReference.cache
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\obj\Release\TestTriangleFill.Form1.resources
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\obj\Release\TestTriangleFill.Properties.Resources.resources
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\obj\Release\TestTriangleFill.csproj.GenerateResource.Cache
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\obj\Release\TestTriangleFill.exe
+C:\Users\Kirill\Documents\GitHub\Graphics\GraphicsProject with textures\TestTriangleFill\obj\Release\TestTriangleFill.pdb

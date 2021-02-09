@@ -21,7 +21,7 @@ namespace Logic
             Vertices = vertices;
             VT = vt;
             VN = vn;
-            Faces = faces;             
+            Faces=faces;             
         }
     }
     struct Vector3D
